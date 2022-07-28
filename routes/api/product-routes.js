@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
       stock: 3,
       tagIds: [1, 2, 3, 4]
     }
-  */
+  */-
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -111,11 +111,11 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id',async (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
-    const deletedProduct = await Product.destory({
-      where: { id: req.params.id },
+    const deletedProduct = await Product.destroy({
+      where: { id: req.params.id }
     });
 
     if (!deletedProduct) {
